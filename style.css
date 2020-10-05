@@ -1,0 +1,22 @@
+body{
+	width:100%;
+	height: 100%;
+	position: absolute;
+}
+
+.controllers{
+	position:fixed;
+	bottom:0;
+	let:0;
+	width: 100%;
+}
+
+.controller{
+	
+	display: inline-block;
+	margin:20px;
+
+}
+.controller input{
+	display: block;
+}
