@@ -27,11 +27,6 @@ body{
 	display: inline;
 }
 
-h1{
-	position:absolute;
-	padding:20px;
-	background:grey;
-}
 
 .text-container{
 	min-height:40px;
