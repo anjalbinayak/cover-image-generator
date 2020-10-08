@@ -5,13 +5,14 @@ const TEXT_COMPONENT_CLASS = 'bin-text-component';
 function createText(textNode, type, color){
 	let textContainer = document.createElement('div');
 	textContainer.classList.add('text-container');
+	textContainer.setAttribute('id',ID());
 	let text = document.createElement(type);
 	text.innerHTML = textNode;
 	text.style.color = color;
 	// text.style.position='absolute';
 	textContainer.appendChild(text);
 	document.body.appendChild(textContainer);
-	attachController(text);
+	attachController(textContainer);
 	dragElement(textContainer);
 
 }
@@ -20,10 +21,11 @@ function attachController(elmt){
 	let controllersGroup = document.querySelector('.controllers');
 	let controller = document.createElement('div');
 	controller.classList.add('controller');
+	controller.setAttribute('id',`controller-${elmt.id}`);
 	let textInput = document.createElement('input');
 	textInput.classList.add('change-text');
 	textInput.setAttribute('placeholder','Text');
-	textInput.value=elmt.innerHTML;
+	textInput.value=elmt.childNodes[0].innerHTML;
 	controller.appendChild(textInput);
 
 	let topPos = document.createElement('input');
@@ -50,7 +52,7 @@ function attachController(elmt){
 
 function attachTextControl(element,inputController){
 	inputController.addEventListener('keyup',function(){
-		element.innerHTML = inputController.value;
+		element.childNodes[0].innerHTML = inputController.value;
 	});
 }
 
@@ -98,6 +100,7 @@ function dragElement(elmnt) {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    // updatePositionControllerValue();
   }
 
   function closeDragElement() {
@@ -105,4 +108,12 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+
+
+
+
 }
+
+function ID() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
