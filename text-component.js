@@ -44,9 +44,29 @@ function attachController(elmt){
 	leftPos.value= elmt.style.left;
 	controller.appendChild(leftPos);
 
+
+	let color = document.createElement('input');
+	color.classList.add('color');
+	color.type="color";
+	color.setAttribute('id',`color-${elmt.id}`);
+	color.setAttribute('title','Change Color');
+	color.value = elmt.style.color;
+	controller.appendChild(color);
+
+
+    let backgroundColor = document.createElement('input');
+	backgroundColor.classList.add('bg-color');
+	backgroundColor.type="color";
+	backgroundColor.setAttribute('id',`bg-color-${elmt.id}`);
+	backgroundColor.setAttribute('title','Change Background Color');
+	backgroundColor.value = elmt.style.color;
+	controller.appendChild(backgroundColor);
+
 	attachTextControl(elmt,textInput);
 	attachTopPosition(elmt,topPos);
 	attachLeftPosition(elmt,leftPos);
+	attachColorControl(elmt,color);
+	attachBgColorControl(elmt,backgroundColor);
 
 	controllersGroup.appendChild(controller);
 
@@ -55,6 +75,18 @@ function attachController(elmt){
 function attachTextControl(element,inputController){
 	inputController.addEventListener('keyup',function(){
 		element.childNodes[0].innerHTML = inputController.value;
+	});
+}
+
+function attachColorControl(element,inputController){
+	inputController.addEventListener('change', function(){
+		element.childNodes[0].style.color = inputController.value;
+	});
+}
+
+function attachBgColorControl(element,inputController){
+	inputController.addEventListener('change', function(){
+		element.childNodes[0].style.backgroundColor = inputController.value;
 	});
 }
 
