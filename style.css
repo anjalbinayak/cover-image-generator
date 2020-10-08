@@ -1,7 +1,8 @@
 body{
 	width:100%;
 	height: 100%;
-	position: absolute;
+	margin:0;
+	padding:0;
 }
 
 .controllers{
@@ -19,4 +20,16 @@ body{
 }
 .controller input{
 	display: block;
+}
+
+h1{
+	position:absolute;
+	padding:20px;
+	background:grey;
+}
+
+.text-container{
+	min-height:40px;
+	min-width: :40px;
+	position:absolute;
 }

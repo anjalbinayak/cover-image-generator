@@ -3,13 +3,16 @@ const TEXT_COMPONENT_CLASS = 'bin-text-component';
 
 
 function createText(textNode, type, color){
+	let textContainer = document.createElement('div');
+	textContainer.classList.add('text-container');
 	let text = document.createElement(type);
 	text.innerHTML = textNode;
 	text.style.color = color;
-	text.style.position='relative';
-	document.body.appendChild(text);
+	// text.style.position='absolute';
+	textContainer.appendChild(text);
+	document.body.appendChild(textContainer);
 	attachController(text);
-	// attachDraggable(text);
+	dragElement(textContainer);
 
 }
 
@@ -63,9 +66,15 @@ function attachLeftPosition(element,inputController){
 	});
 }
 
-function attachDraggable(elmnt) {
+function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
     elmnt.onmousedown = dragMouseDown;
+  }
 
   function dragMouseDown(e) {
     e = e || window.event;
