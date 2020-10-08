@@ -9,7 +9,6 @@ function createText(textNode, type, color){
 	let text = document.createElement(type);
 	text.innerHTML = textNode;
 	text.style.color = color;
-	// text.style.position='absolute';
 	textContainer.appendChild(text);
 	document.body.appendChild(textContainer);
 	attachController(textContainer);
