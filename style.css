@@ -33,5 +33,13 @@ h1{
 	min-height:40px;
 	min-width: :40px;
 	position:absolute;
-	
+
+}
+
+#article-cover{
+	width:800px;
+	height:415px;
+	border:1px solid black;
+	margin:0 auto;
+	display: block;
 }
