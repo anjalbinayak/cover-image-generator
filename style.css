@@ -41,7 +41,17 @@ body{
 	border:1px solid black;
 	margin:0 auto;
 	display: block;
+	padding:30px;
+	
 }
+
+#article-bg-image{
+	width:inherit;
+	height:inherit;
+	position: absolute;
+	background-repeat: no-repeat;
+}
+
 #article-cover-bg{
 	float:right;
 }

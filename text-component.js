@@ -148,7 +148,9 @@ function dragElement(elmnt) {
 function updatePositionControllerValue(elmt){
 	let topPos = document.getElementById(`top-pos-${elmt.id}`);
 	let leftPos = document.getElementById(`left-pos-${elmt.id}`);
+	if(topPos)
 	topPos.value = parseInt(elmt.style.top);
+	if(leftPos)
 	leftPos.value = parseInt(elmt.style.left);
 }
 
