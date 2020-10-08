@@ -24,12 +24,14 @@ function attachController(elmt){
 	controller.setAttribute('id',`controller-${elmt.id}`);
 	let textInput = document.createElement('input');
 	textInput.classList.add('change-text');
+	textInput.setAttribute('id',`change-text-${elmt.id}`);
 	textInput.setAttribute('placeholder','Text');
 	textInput.value=elmt.childNodes[0].innerHTML;
 	controller.appendChild(textInput);
 
 	let topPos = document.createElement('input');
 	topPos.type='number';
+	topPos.setAttribute('id',`top-pos-${elmt.id}`);
 	topPos.classList.add('top-pos');
 	topPos.setAttribute('placeholder','Top Position');
 	topPos.value = elmt.style.top;
@@ -38,6 +40,7 @@ function attachController(elmt){
 	let leftPos = document.createElement('input');
 	leftPos.classList.add('left-pos');
 	leftPos.type='number';
+	leftPos.setAttribute('id',`left-pos-${elmt.id}`);
 	leftPos.setAttribute('placeholder','Left Position');
 	leftPos.value= elmt.style.left;
 	controller.appendChild(leftPos);
@@ -100,7 +103,7 @@ function dragElement(elmnt) {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    // updatePositionControllerValue();
+    updatePositionControllerValue(elmnt);
   }
 
   function closeDragElement() {
@@ -109,9 +112,13 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 
+}
 
-
-
+function updatePositionControllerValue(elmt){
+	let topPos = document.getElementById(`top-pos-${elmt.id}`);
+	let leftPos = document.getElementById(`left-pos-${elmt.id}`);
+	topPos.value = parseInt(elmt.style.top);
+	leftPos.value = parseInt(elmt.style.left);
 }
 
 function ID() {
