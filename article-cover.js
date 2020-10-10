@@ -14,7 +14,7 @@ function readURL(input) {
       image.style.width='600px';
       image.style.height='300px';
       image.src= e.target.result;
-      
+      createImageController(image);
       dragElement(articleCoverBgImage);
     }
     

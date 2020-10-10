@@ -15,7 +15,7 @@ function createImageController(image){
 	heightController.setAttribute('placeholder',' Height Of Image ');
 	heightController.type="number";
 	heightController.setAttribute('id',`height-controller-${image.id}`);
-	heightController.appendChild(heightController);
+	imageController.appendChild(heightController);
 
 	attachWidthControl(image,widthController);
 	attachHeightControl(image,heightController);
