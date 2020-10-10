@@ -63,3 +63,7 @@ body{
 .image-controller{
 	padding: 10px;
 }
+
+.image-container{
+	position: absolute;
+}

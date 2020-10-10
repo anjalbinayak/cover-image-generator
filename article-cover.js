@@ -8,14 +8,17 @@ function readURL(input) {
     var reader = new FileReader();
     
     reader.onload = function(e) {
+      let imageContainer = document.createElement('div');
+      imageContainer.classList.add('image-container');
       let image = document.createElement('img'); 
-      articleCoverBgImage.appendChild(image);
+      imageContainer.appendChild(image);
+      articleCoverBgImage.appendChild(imageContainer);
       image.id=ID();
       image.style.width='600px';
       image.style.height='300px';
       image.src= e.target.result;
       createImageController(image);
-      dragElement(articleCoverBgImage);
+      dragElement(imageContainer);
     }
     
     reader.readAsDataURL(input.files[0]); // convert to base64 string
