@@ -9,8 +9,6 @@ function createText(textNode, type, color){
 	let textContainer = document.createElement('div');
 	textContainer.classList.add('text-container');
 	textContainer.setAttribute('id',ID());
-	textContainer.style.left = getRandomNumber(300,900)+"px";
-	textContainer.style.top = getRandomNumber(80,400)+"px";
 	let text = document.createElement(type);
 	text.innerHTML = textNode;
 	text.style.color = color;
@@ -37,16 +35,18 @@ function attachController(elmt){
 	topPos.type='number';
 	topPos.setAttribute('id',`top-pos-${elmt.id}`);
 	topPos.classList.add('top-pos');
+	elmt.style.top = getRandomNumber(80,400)+"px";
+	topPos.value = parseInt(elmt.style.top);
 	topPos.setAttribute('placeholder','Top Position');
-	topPos.value = elmt.style.top;
 	controller.appendChild(topPos);
 
 	let leftPos = document.createElement('input');
 	leftPos.classList.add('left-pos');
+	elmt.style.left = getRandomNumber(300,900)+"px";
+	leftPos.value = parseInt(elmt.style.left);
 	leftPos.type='number';
 	leftPos.setAttribute('id',`left-pos-${elmt.id}`);
 	leftPos.setAttribute('placeholder','Left Position');
-	leftPos.value= elmt.style.left;
 	controller.appendChild(leftPos);
 
 

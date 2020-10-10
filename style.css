@@ -52,6 +52,11 @@ body{
 	background-repeat: no-repeat;
 }
 
-#article-cover-bg{
-	float:right;
+.sidebar-controller{
+	position:fixed;
+	top:0;
+	right:0;
+	height:100%;
+	width:200px;
+	background: grey;
 }
