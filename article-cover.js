@@ -8,8 +8,9 @@ function readURL(input) {
     var reader = new FileReader();
     
     reader.onload = function(e) {
-      let image = articleCoverBgImage.querySelector('img');
-      if(!image) {image = document.createElement('img'); articleCoverBgImage.appendChild(image); }
+      let image = document.createElement('img'); 
+      articleCoverBgImage.appendChild(image);
+      image.id=ID();
       image.style.width='600px';
       image.style.height='300px';
       image.src= e.target.result;
