@@ -1,11 +1,16 @@
 
 const TEXT_COMPONENT_CLASS = 'bin-text-component';
 
+function getRandomNumber(min,max){
+	return Math.floor((Math.random() * max) + min);
+}
 
 function createText(textNode, type, color){
 	let textContainer = document.createElement('div');
 	textContainer.classList.add('text-container');
 	textContainer.setAttribute('id',ID());
+	textContainer.style.left = getRandomNumber(300,900)+"px";
+	textContainer.style.top = getRandomNumber(80,400)+"px";
 	let text = document.createElement(type);
 	text.innerHTML = textNode;
 	text.style.color = color;
