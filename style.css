@@ -52,7 +52,7 @@ body{
 	background-repeat: no-repeat;
 }
 
-.sidebar-controller{
+.sidebar{
 	position:fixed;
 	top:0;
 	right:0;

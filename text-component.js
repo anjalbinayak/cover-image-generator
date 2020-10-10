@@ -42,7 +42,7 @@ function attachController(elmt){
 
 	let leftPos = document.createElement('input');
 	leftPos.classList.add('left-pos');
-	elmt.style.left = getRandomNumber(300,900)+"px";
+	elmt.style.left = getRandomNumber(300,700)+"px";
 	leftPos.value = parseInt(elmt.style.left);
 	leftPos.type='number';
 	leftPos.setAttribute('id',`left-pos-${elmt.id}`);
