@@ -4,6 +4,14 @@ function createImageController(image){
 	let imageController = document.createElement('div');
 	imageController.classList.add('image-controller');
 
+	let imageIcon = document.createElement("img");
+	imageIcon.src = image.src;
+	imageIcon.id=`image-icon-${image.id}`;
+	imageIcon.style.width="40px";
+	imageIcon.style.height = "40px";
+
+	imageController.appendChild(imageIcon);
+
 	let widthController = document.createElement('input');
 	widthController.setAttribute('placeholder',' Width Of Image ');
 	widthController.type="number";
