@@ -17,10 +17,25 @@ function createImageController(image){
 	heightController.setAttribute('id',`height-controller-${image.id}`);
 	imageController.appendChild(heightController);
 
+	let zIndexController = document.createElement('input');
+	zIndexController.setAttribute('placeholder',' Z index Of Image ');
+	zIndexController.type="number";
+	zIndexController.setAttribute('id',`zindex-controller-${image.id}`);
+	imageController.appendChild(zIndexController);
+
+
 	attachWidthControl(image,widthController);
 	attachHeightControl(image,heightController);
+	attachZIndexControl(image.parentElement,zIndexController);
+
 	sidebar.appendChild(imageController);
 
+}
+
+function attachZIndexControl(image,input){
+	   input.addEventListener('change',function(){
+   	  image.style.zIndex = parseInt(input.value);
+   });
 }
 
 function attachWidthControl(image,input){
